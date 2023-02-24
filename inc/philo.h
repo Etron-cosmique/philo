@@ -6,7 +6,7 @@
 /*   By: clvicent <clvicent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:50:29 by clvicent          #+#    #+#             */
-/*   Updated: 2023/02/24 14:39:15 by clvicent         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:37:37 by clvicent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ typedef struct s_env
 
 void	shut_philo(t_env *env, char *s);
 void	init_env(t_env *env, int ac, char **av);
+void	init_philo(t_env *env);
 
 #endif
