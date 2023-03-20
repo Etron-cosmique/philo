@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   _search_and_replace.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clvicent <clvicent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 14:05:26 by clvicent          #+#    #+#             */
-/*   Updated: 2023/03/17 17:13:10 by clvicent         ###   ########.fr       */
+/*   Created: 2023/03/09 16:30:54 by clvicent          #+#    #+#             */
+/*   Updated: 2023/03/09 16:34:31 by clvicent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+char *s_and_r(char *str, char s, char r)
 {
-	t_env	*env;
+	int	i;
 
-	if (ac > 6 || ac < 5)
+	i = 0;
+	while (str[i])
 	{
-		printf("Usage : ./philo number_of_philosophers time_to_die\
- time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]\n");
-		return (0);
+		if (str[i] == s)
+			str[i] = r;
+		i++;
 	}
-	env = NULL;
-	init_env(env, ac, av);
+	return (str);
 }

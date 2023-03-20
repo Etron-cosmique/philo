@@ -10,7 +10,11 @@ RM = rm -rf
 LIBFT = libft
 
 SOURCES =   main.c \
-			utils.c
+			utils.c \
+			init.c \
+			threads_utils.c \
+			checkers.c \
+			superviseur.c
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 

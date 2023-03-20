@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   superviseur.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clvicent <clvicent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 14:05:26 by clvicent          #+#    #+#             */
-/*   Updated: 2023/03/17 17:13:10 by clvicent         ###   ########.fr       */
+/*   Created: 2023/03/09 14:48:07 by clvicent          #+#    #+#             */
+/*   Updated: 2023/03/20 15:23:54 by clvicent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int ac, char **av)
+void	superviseur(t_env *env)
 {
-	t_env	*env;
-
-	if (ac > 6 || ac < 5)
+	while (1)
 	{
-		printf("Usage : ./philo number_of_philosophers time_to_die\
- time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]\n");
-		return (0);
+		if (env->arg->max_eat != -1)
+			if (check_all(env))
+				shut_philo(env, JOB_DONE);
+		if (check_death(NULL, env->arg))
+			shut_philo(env, DEATH);
+		usleep(100);
 	}
-	env = NULL;
-	init_env(env, ac, av);
+}
+
+int	coef(int n)
+{
+	if (n < 10)
+		return (1);
+	else if (n > 9 && n < 101)
+		return (n / 10);
+	return (10);
 }
